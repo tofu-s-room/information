@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>とうふの部屋最新情報</title>
+</head>
+
+<body>
+    <br>
+    <h1 class="border_line_1">とうふの部屋最新情報</h1> <br>
+    <div class="scroll"> <span><h3>今日の日付は<script type="text/javascript">
+        //日付
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth() + 1;
+        var week = today.getDay();
+        var day = today.getDate();
+
+        var week_ja = new Array("日", "月", "火", "水", "木", "金", "土");
+
+
+        document.write(year + "年" + month + "月" + day + "日 " + week_ja[week] + "曜日"+"です。");
+        document.write("今日もとうふの部屋をお願いします!!");
+    </script></h3></span>
+    </div>
+    <iframe id="parentframe" src="https://tofu-s-room.github.io" frameborder="no" scrolling="no"></iframe>
+    <script>
+        window.addEventListener('message', function(e) {
+            var iframe = $("#parentframe");
+            var eventName = e.data[0];
+            var data = e.data[1];
+            switch (eventName) {
+                case 'setHeight':
+                    iframe.height(data);
+                    break;
+            }
+        }, false);
+    </script>
+    <p style="margin-left: 20px;">※インターネット接続がない場合上部の情報が表示されません。</p>
+    <footer style="text-align: center;" class="" id="footer">
+        <hr>
+        <p class="footer-text">&copy;
+            <script type="text/javascript">
+                var today = new Date();
+                var year = today.getFullYear();
+                document.write("2022-" + year);
+            </script> All rights reserved by とうふの部屋,Tofu's room.
+        </p>
+    </footer>
+    <style type="text/css">
+        /*額縁*/
+        
+        .border_line_1 {
+            margin: auto;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 500px;
+            height: 100px;
+            padding: 18px;
+            font-size: 30px;
+            text-align: center;
+            color: #000000;
+            background: #ffffff;
+            border: 7px dotted #000000;
+            border-radius: 1px;
+            box-shadow: 0 0 0 12px #ffffff;
+        }
+    </style>
+    <style type="text/css">
+        /*スクロール*/
+        
+        .scroll {
+            margin: auto;
+            width: 100%;
+            font-size: 140%;
+            line-height: 1.5em;
+            text-align: center;
+            color: #000000;
+            background: #fff;
+            overflow: hidden;
+        }
+        
+        .scroll span {
+            display: inline-block;
+            padding-left: 100%;
+            white-space: nowrap;
+            line-height: 1em;
+            animation: scrollAnime 11s linear infinite;
+        }
+        
+        @keyframes scrollAnime {
+            0% {
+                transform: translateX(0)
+            }
+            100% {
+                transform: translateX(-100%)
+            }
+        }
+    </style>
+    <style type="text/css">
+        /*フォント*/
+        
+        @font-face {
+            font-family: 'gosic';
+            font-style: normal;
+            font-weight: 400;
+            src: url(/font/YasashisaGothicBold-V2.woff) format('woff');
+        }
+        
+        html,
+        body {
+            font-family: 'gosic';
+        }
+    </style>
+
+</body>
+
+</html>
